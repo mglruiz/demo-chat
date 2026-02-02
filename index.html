@@ -2,20 +2,20 @@
 <html lang="es">
 <head>
   <meta charset="utf-8" />
-  <title>Demo – Asistente IA</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Demo – Asistente</title>
+
+  <link rel="stylesheet" href="https://unpkg.com/@n8n/chat/style.css" />
 </head>
-<body style="margin:0; font-family: Arial, sans-serif;">
+<body>
+  <h3 style="font-family:Arial;margin:12px">Demo – Asistente</h3>
 
-  <div style="padding:12px; background:#111; color:white;">
-    <strong>Demo – Asistente Inteligente</strong>
-  </div>
+  <script type="module">
+    import { createChat } from "https://unpkg.com/@n8n/chat/chat.bundle.es.js";
 
-  <!-- n8n Chat Embed -->
-  <script 
-    src="https://lruizj.app.n8n.cloud/chat/embed.js"
-    data-chat-url="https://lruizj.app.n8n.cloud/webhook/c38200e0-3cc2-4202-8aeb-b004f7f676ce/chat">
+    createChat({
+      webhookUrl: "https://lruizj.app.n8n.cloud/webhook/c38200e0-3cc2-4202-8aeb-b004f7f676ce/chat",
+    });
   </script>
-
 </body>
 </html>
