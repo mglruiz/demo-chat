@@ -5,17 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Demo – Asistente</title>
 
-  <link rel="stylesheet" href="https://unpkg.com/@n8n/chat/style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@n8n/chat/style.css" />
 </head>
 <body>
   <h3 style="font-family:Arial;margin:12px">Demo – Asistente</h3>
 
-  <script type="module">
-    import { createChat } from "https://unpkg.com/@n8n/chat/chat.bundle.es.js";
+  <script src="https://cdn.jsdelivr.net/npm/@n8n/chat/chat.bundle.umd.js"></script>
 
-    createChat({
-      webhookUrl: "https://lruizj.app.n8n.cloud/webhook/c38200e0-3cc2-4202-8aeb-b004f7f676ce/chat",
-    });
+  <script>
+    const createChat = (window.n8nChat && window.n8nChat.createChat) || window.createChat;
+
+    if (!createChat) {
+      console.error("No se pudo cargar createChat. Revisa el bundle.");
+    } else {
+      createChat({
+        webhookUrl: "https://lruizj.app.n8n.cloud/webhook/c38200e0-3cc2-4202-8aeb-b004f7f676ce/chat",
+      });
+    }
   </script>
 </body>
 </html>
