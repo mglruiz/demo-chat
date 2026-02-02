@@ -379,6 +379,7 @@
       <div class="side-actions">
         <button class="btn primary" id="newChatBtn">+ Nuevo chat</button>
         <button class="btn danger" id="clearBtn">Limpiar</button>
+        
       </div>
 
       <div class="sessions" id="sessions">
@@ -660,17 +661,12 @@
       const controller = new AbortController();
       const timeout = setTimeout(()=> controller.abort(), REQUEST_TIMEOUT_MS);
 
-      const res = await fetch(WEBHOOK_URL, {
+        const res = await fetch(WEBHOOK_URL, {
         method: "POST",
-        headers: { "Content-Type":"application/json" },
-        body: JSON.stringify({
-          message: text,
-          sessionId: chat.sessionId,
-          // Puedes agregar userId/tenantId si quieres multi-cliente
-          // userId: "cliente-demo",
-        }),
-        signal: controller.signal
-      });
+        headers: { "Content-Type": "text/plain;charset=UTF-8" },
+        body: JSON.stringify({ message: text, sessionId: chat.sessionId })
+        });
+
 
       clearTimeout(timeout);
 
